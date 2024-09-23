@@ -8,7 +8,10 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.json',
+        projectService: {
+          allowDefaultProject: ['*.js'],
+          defaultProject: 'tsconfig.json',
+        },
       },
     },
     rules: {
@@ -18,6 +21,6 @@ export default tseslint.config(
   },
   {
     files: ['eslint.config.mjs'],
-    extends: [tseslint.configs.disableTypeChecked]
-  }
+    extends: [tseslint.configs.disableTypeChecked],
+  },
 );
