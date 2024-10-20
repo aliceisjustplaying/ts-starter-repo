@@ -20,6 +20,7 @@ async function shutdown() {
     await stopMetricsServer();
   } catch (error) {
     logger.error(`Error closing Metrics server: ${(error as Error).message}`);
+    process.exit(1);
   }
 
   process.exit(0);
