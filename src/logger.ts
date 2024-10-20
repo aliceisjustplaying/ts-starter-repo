@@ -1,19 +1,15 @@
 import { pino } from 'pino';
+import pretty from 'pino-pretty';
 
-const logger = pino({
-  level: process.env.LOG_LEVEL ?? 'info',
-  transport:
-    process.env.NODE_ENV !== 'production' ?
-      {
-        target: 'pino-pretty',
-        options: {
-          colorize: true,
-          translateTime: 'SYS:standard',
-          ignore: 'pid,hostname',
-        },
-      }
-    : undefined,
-  timestamp: pino.stdTimeFunctions.isoTime,
-});
-
+const logger = pino(
+  {
+    level: process.env.LOG_LEVEL ?? 'info',
+    timestamp: pino.stdTimeFunctions.isoTime,
+  },
+  pretty({
+    sync: process.env.NODE_ENV !== 'production' ? true : false,
+    colorize: true,
+    translateTime: 'SYS:standard',
+  }),
+);
 export default logger;
