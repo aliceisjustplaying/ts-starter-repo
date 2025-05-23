@@ -1,0 +1,9 @@
+[submodule "atproto-docs/bsky-docs"]
+	path = atproto-docs/bsky-docs
+	url = https://github.com/bluesky-social/bsky-docs
+[submodule "atproto-docs/atproto"]
+	path = atproto-docs/atproto
+	url = https://github.com/bluesky-social/atproto
+[submodule "atproto-docs/atproto-website"]
+	path = atproto-docs/atproto-website
+	url = https://github.com/bluesky-social/atproto-website
